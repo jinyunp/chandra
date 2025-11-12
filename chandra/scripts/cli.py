@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from typing import List
+import time
 
 import click
 
@@ -268,9 +269,12 @@ def main(
                         generate_kwargs["max_workers"] = max_workers
                     if max_retries is not None:
                         generate_kwargs["max_retries"] = max_retries
-
+                        
+                start_ts = time.perf_counter()
                 results = model.generate(batch, **generate_kwargs)
+                elapsed = time.perf_counter() - start_ts
                 all_results.extend(results)
+                click.echo(f"========Page {batch_start + 1} processed in {elapsed:.2f}s")
 
             # Save merged output for all pages
             save_merged_output(

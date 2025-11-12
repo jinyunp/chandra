@@ -99,7 +99,7 @@ Process single files or entire directories:
 chandra input.pdf ./output --method vllm
 
 # Process all files in a directory with local model
-chandra ./documents ./output --method hf
+chandra ./assets/ecminer ./output --method hf
 ```
 
 **CLI Options:**
