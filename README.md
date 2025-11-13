@@ -96,7 +96,7 @@ Process single files or entire directories:
 
 ```bash
 # Single file, with vllm server (see below for how to launch vllm)
-chandra input.pdf ./output --method vllm
+chandra ./assets/ecminer/Ch1_v3.1.pdf ./output --method hf
 
 # Process all files in a directory with local model
 chandra ./assets/ecminer ./output --method hf
